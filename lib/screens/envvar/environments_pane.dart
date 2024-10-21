@@ -153,7 +153,7 @@ class EnvironmentsList extends HookConsumerWidget {
                           ),
                         );
                       }
-                      return const SizedBox();
+                      return kSizedBoxEmpty;
                     }).toList(),
                   ),
           ),
@@ -192,6 +192,9 @@ class EnvironmentItem extends ConsumerWidget {
       onTap: () {
         ref.read(selectedEnvironmentIdStateProvider.notifier).state = id;
         kEnvScaffoldKey.currentState?.closeDrawer();
+      },
+      onSecondaryTap: () {
+        ref.read(selectedEnvironmentIdStateProvider.notifier).state = id;
       },
       focusNode: ref.watch(nameTextFieldFocusNodeProvider),
       onChangedNameEditor: (value) {
